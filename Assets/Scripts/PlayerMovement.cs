@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
-
     public float sprintSpeed;
     private float currentSpeed;
 
@@ -41,14 +40,12 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = moveSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         
         MyInput();
-        SpeedControl();
-        Sprint();
+        HandleSprint();
 
         if (grounded)
             rb.drag = groundDrag;
@@ -76,26 +73,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void HandleSprint()
+    {
+        if (grounded && Input.GetKey(sprintKey))
+            currentSpeed = sprintSpeed;
+        else
+            currentSpeed = moveSpeed;
+    }
+
     private void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // On Ground
-        if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-       
-        else if(!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-    }
-
-    private void SpeedControl()
-    {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if(flatVel.magnitude > moveSpeed)
+        // allow force only if under max speed
+        if (flatVel.magnitude < currentSpeed)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            if (grounded)
+                rb.AddForce(moveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
+            else
+                rb.AddForce(moveDirection.normalized * currentSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
@@ -108,15 +106,5 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-    }
-
-    private void Sprint()
-    {
-        if (grounded && Input.GetKey(sprintKey))
-            currentSpeed = sprintSpeed;
-        else
-            currentSpeed = moveSpeed;
-
-        Debug.Log("Sprinting");
     }
 }
