@@ -6,9 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
 
+    public float sprintSpeed;
+    private float currentSpeed;
+
     public float groundDrag;
-
-
 
     public float jumpForce;
     public float jumpCooldown;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool readyToJump;
 
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        currentSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         
         MyInput();
         SpeedControl();
+        Sprint();
 
         if (grounded)
             rb.drag = groundDrag;
@@ -106,5 +110,13 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
-    
+    private void Sprint()
+    {
+        if (grounded && Input.GetKey(sprintKey))
+            currentSpeed = sprintSpeed;
+        else
+            currentSpeed = moveSpeed;
+
+        Debug.Log("Sprinting");
+    }
 }
