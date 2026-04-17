@@ -7,25 +7,29 @@ Shader "Custom/GenshinGrass"
         _BottomColor ("Bottom Color", Color) = (0, 0.5, 0, 1)
         _WindSpeed ("Wind Speed", Range(0, 5)) = 1
         _WindStrength ("Wind Strength", Range(0, 1)) = 0.2
-        _WindFrequency ("Wind Frequency", Range(0, 10)) = 2
     }
+
     SubShader
     {
-        Tags { "RenderType"="TransparentCutout" "Queue"="AlphaTest" "IgnoreProjector"="True" }
+        // Penting: RenderType harus Grass agar Terrain mengenalinya
+        Tags { "RenderType"="TransparentCutout" "Queue"="Geometry" "IgnoreProjector"="True" }
         LOD 100
-        Cull Off // Agar rumput terlihat dari depan & belakang
+        Cull Off 
 
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            // Baris keramat untuk GPU Instancing
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
 
             struct appdata
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                UNITY_VERTEX_INPUT_INSTANCE_ID // Tambahkan ID Instance
             };
 
             struct v2f
@@ -33,6 +37,7 @@ Shader "Custom/GenshinGrass"
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
                 float4 color : COLOR;
+                UNITY_VERTEX_INPUT_INSTANCE_ID // Teruskan ID ke fragment
             };
 
             sampler2D _MainTex;
@@ -41,25 +46,25 @@ Shader "Custom/GenshinGrass"
             float4 _BottomColor;
             float _WindSpeed;
             float _WindStrength;
-            float _WindFrequency;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 
-                // Ambil posisi dunia agar gerakan angin bervariasi tiap posisi
-                float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
+                // Inisialisasi Instancing
+                UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_TRANSFER_INSTANCE_ID(v, o);
+
+                // Ambil posisi dunia agar angin tidak gerak barengan semua
+                float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                 
-                // Logika Angin: Gunakan Sine Wave
-                // Kita gunakan v.uv.y agar hanya bagian atas rumput yang bergoyang (bawah tetap di tanah)
-                float wind = sin(_Time.y * _WindSpeed + worldPos.x * _WindFrequency + worldPos.z * _WindFrequency);
+                // Animasi Angin
+                float wind = sin(_Time.y * _WindSpeed + worldPos.x + worldPos.z);
+                // v.uv.y digunakan agar akar rumput (0) tidak gerak, ujung (1) gerak
                 v.vertex.x += wind * _WindStrength * v.uv.y;
-                v.vertex.z += wind * _WindStrength * 0.5 * v.uv.y;
 
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                
-                // Interpolasi warna berdasarkan tinggi (UV Y)
                 o.color = lerp(_BottomColor, _TopColor, v.uv.y);
                 
                 return o;
@@ -67,12 +72,13 @@ Shader "Custom/GenshinGrass"
 
             fixed4 frag (v2f i) : SV_Target
             {
+                UNITY_SETUP_INSTANCE_ID(i); // Setup instancing di fragment
+                
                 fixed4 tex = tex2D(_MainTex, i.uv);
                 
-                // Alpha clipping agar bagian transparan tekstur hilang
+                // Gunakan clip jika tekstur kamu punya alpha
                 clip(tex.a - 0.5);
                 
-                // Kalikan warna tekstur dengan gradient warna kita
                 return tex * i.color;
             }
             ENDCG
