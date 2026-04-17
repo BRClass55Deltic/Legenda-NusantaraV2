@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: _BUILTIN_QueueControl
@@ -107,6 +107,8 @@ Material:
     - _ZWrite: 1
     - _absorb_coefficient: 0
     - _depth: 0
+    - _distance: 107.4
+    - _foam: 10
     - _ripple: 1
     - _ripple_desen: 13.13
     - _rippleslimnes: 6.47
@@ -122,7 +124,9 @@ Material:
     - _absorb_coeficien: {r: 0, g: 0, b: 0, a: 0}
     - _absorb_color: {r: 0.08419358, g: 0.47030982, b: 0.8113208, a: 0}
     - _deep_color: {r: 0.0117646875, g: 0.47178596, b: 0.74509805, a: 0}
+    - _deep_water: {r: 0.03774294, g: 0.28673476, b: 0.6452829, a: 0}
     - _ripple_color: {r: 0.44141686, g: 0.8189996, b: 0.94716984, a: 0}
     - _shallow_color: {r: 0.42707723, g: 0.6777889, b: 0.78867924, a: 0}
+    - _swallo_water: {r: 0.45094335, g: 0.8784016, b: 1, a: 0}
     - _water: {r: 0.032588024, g: 0.4188005, b: 0.7509433, a: 0}
   m_BuildTextureStacks: []
