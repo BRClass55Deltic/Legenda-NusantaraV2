@@ -108,7 +108,7 @@ Material:
     - _absorb_coefficient: 0
     - _depth: 0
     - _ripple: 1
-    - _ripple_desen: 11
+    - _ripple_desen: 13.13
     - _rippleslimnes: 6.47
     - _transparant: 0
     - _water_deep: 0.06
