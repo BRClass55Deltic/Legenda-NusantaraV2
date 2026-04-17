@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
 
     Vector3 moveDirection;
+    public float rotationSpeed = 10f;
 
     Rigidbody rb;
 
@@ -45,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         
         MyInput();
-        HandleSprint();
+        Sprinting();
+        RotatePlayer();
 
         if (grounded)
             rb.drag = groundDrag;
@@ -73,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void HandleSprint()
+    private void Sprinting()
     {
         if (grounded && Input.GetKey(sprintKey))
             currentSpeed = sprintSpeed;
@@ -83,17 +85,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            // langsung pakai world axis
+        moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        // allow force only if under max speed
         if (flatVel.magnitude < currentSpeed)
         {
             if (grounded)
-                rb.AddForce(moveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
+                rb.AddForce(moveDirection * currentSpeed * 10f, ForceMode.Force);
             else
-                rb.AddForce(moveDirection.normalized * currentSpeed * 10f * airMultiplier, ForceMode.Force);
+                rb.AddForce(moveDirection * currentSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
+    }
+
+    private void RotatePlayer()
+    {
+       if (moveDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
