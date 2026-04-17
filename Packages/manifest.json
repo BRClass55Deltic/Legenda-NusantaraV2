@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.ezhex1991.ezsoftbone": "https://github.com/EZhex1991/EZSoftBone.git",
     "com.unity.cinemachine": "2.10.7",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.1",
