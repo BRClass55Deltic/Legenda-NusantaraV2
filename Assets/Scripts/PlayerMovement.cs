@@ -4,51 +4,52 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    public float sprintSpeed;
+    [Header("Movement")]
+    public float moveSpeed = 7f;
+    public float sprintSpeed = 10f;
     private float currentSpeed;
+    public float groundDrag = 5f;
 
-    public float groundDrag;
-
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
+    [Header("Jumping & Air Control")]
+    public float jumpForce = 12f;
+    public float jumpCooldown = 0.25f;
+    public float airMultiplier = 0.6f; // Semakin tinggi, semakin lincah di udara
     bool readyToJump;
 
+    [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
 
-    public float playerHeight;
+    [Header("Ground Check")]
+    public float playerHeight = 2f;
     public LayerMask whatIsGround;
     bool grounded;
 
-    public Transform orientation;
+    [Header("Settings")]
+    public float rotationSpeed = 10f;
+    Rigidbody rb;
 
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-    public float rotationSpeed = 10f;
-
-    Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
         readyToJump = true;
-        currentSpeed = moveSpeed;
     }
 
     void Update()
     {
+        // Ground check menggunakan Raycast
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        
+
         MyInput();
-        Sprinting();
+        SpeedControl();
         RotatePlayer();
 
+        // Handle drag
         if (grounded)
             rb.drag = groundDrag;
         else
@@ -65,53 +66,71 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
-        {
-            readyToJump = false;
-
-            Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
-
-    private void Sprinting()
-    {
+        // Logic Sprint
         if (grounded && Input.GetKey(sprintKey))
             currentSpeed = sprintSpeed;
         else
             currentSpeed = moveSpeed;
+
+        // Logic Jump
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        {
+            readyToJump = false;
+            Jump();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void MovePlayer()
     {
-            // langsung pakai world axis
+        // Hitung moveDirection berdasarkan arah input saat ini (selalu terupdate)
         moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
+        // Jika di tanah
+        if (grounded)
+        {
+            rb.AddForce(moveDirection * currentSpeed * 10f, ForceMode.Force);
+        }
+        // Jika di udara (Air Control)
+        else
+        {
+            // Kita tetap kasih force di udara agar player bisa merubah arah momentum
+            rb.AddForce(moveDirection * currentSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
+    }
+
+    private void SpeedControl()
+    {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if (flatVel.magnitude < currentSpeed)
+        // Membatasi kecepatan velocity agar tidak "over-speed" karena AddForce
+        if (flatVel.magnitude > currentSpeed)
         {
-            if (grounded)
-                rb.AddForce(moveDirection * currentSpeed * 10f, ForceMode.Force);
-            else
-                rb.AddForce(moveDirection * currentSpeed * 10f * airMultiplier, ForceMode.Force);
+            Vector3 limitedVel = flatVel.normalized * currentSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
 
     private void RotatePlayer()
     {
-       if (moveDirection != Vector3.zero)
+        // Menggunakan input arah agar karakter selalu menghadap ke mana kita tekan tombol
+        Vector3 inputDir = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+
+        if (inputDir != Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            Quaternion targetRotation = Quaternion.LookRotation(inputDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
     private void Jump()
     {
+        // 1. Benar-benar nol-kan velocity Y biar gak ada sisa gravitasi/momentum jatuh
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        // 2. Gunakan gaya Impulse yang lebih besar
+        // Kalau masih kurang tinggi, lu bisa kalikan jumpForce di sini atau naikin di Inspector
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     private void ResetJump()

@@ -5557,6 +5557,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.x
       value: 0.13870122
       objectReference: {fileID: 0}
+    - target: {fileID: 6109266824628923779, guid: 4f59c89e3ca017849999cacce9cb8dd8, type: 3}
+      propertyPath: jumpForce
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8622774576408714781, guid: 4f59c89e3ca017849999cacce9cb8dd8, type: 3}
       propertyPath: m_IsActive
       value: 0
