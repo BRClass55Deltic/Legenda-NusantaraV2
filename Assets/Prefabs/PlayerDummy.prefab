@@ -1170,5 +1170,4 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  orientation: {fileID: 9064667522076055750}
   rotationSpeed: 10
