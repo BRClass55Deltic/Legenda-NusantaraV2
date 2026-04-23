@@ -1605,7 +1605,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10205,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10209,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -3221,8 +3221,8 @@
     "m_ObjectId": "28eb848a03f34927ae720882c5186089",
     "m_Title": "Refraction",
     "m_Position": {
-        "x": 6165.6005859375,
-        "y": 576.7999877929688
+        "x": 6165.60009765625,
+        "y": 576.7999267578125
     }
 }
 
@@ -4665,7 +4665,7 @@
     "m_Title": "Foam Line with noise and cutoffs",
     "m_Position": {
         "x": 8648.0009765625,
-        "y": 616.0
+        "y": 615.9998168945313
     }
 }
 
@@ -5972,8 +5972,8 @@
     "m_ObjectId": "6fdcb9ece4ae43dd90ce7cc0c3e02fdb",
     "m_Title": "RenderTexture UV/ Ripples",
     "m_Position": {
-        "x": 5534.400390625,
-        "y": 2356.800048828125
+        "x": 5534.3994140625,
+        "y": 2356.7998046875
     }
 }
 
@@ -6024,8 +6024,8 @@
     "m_ObjectId": "71260ca09fb949f386645dc750ee9599",
     "m_Title": "Foam Line",
     "m_Position": {
-        "x": 7708.0009765625,
-        "y": 237.60000610351563
+        "x": 7707.9990234375,
+        "y": 237.59988403320313
     }
 }
 
@@ -6426,8 +6426,8 @@
     "m_ObjectId": "7caa42ec53174c019deaf9c51c5c8d82",
     "m_Title": "Main Tint",
     "m_Position": {
-        "x": 9716.80078125,
-        "y": 1592.800048828125
+        "x": 9716.7998046875,
+        "y": 1592.7998046875
     }
 }
 
@@ -7609,8 +7609,8 @@
     "m_ObjectId": "a0d41341bbb94572b0be4ec7ba48af9d",
     "m_Title": "Distorted Noise",
     "m_Position": {
-        "x": 3780.800048828125,
-        "y": 1240.800048828125
+        "x": 3780.7998046875,
+        "y": 1240.7999267578125
     }
 }
 
