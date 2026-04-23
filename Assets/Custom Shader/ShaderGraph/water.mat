@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestMat_Red
-  m_Shader: {fileID: -6465566751694194690, guid: fdce9536c5b473e44ba1aba9dfde0e21, type: 3}
+  m_Name: water
+  m_Shader: {fileID: -6465566751694194690, guid: d62e14ef14b0ea5408d83eb4e6e8b13e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,6 +23,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_37AAFE25:
+        m_Texture: {fileID: 2800000, guid: be4f2fc964b4e5f4c92b4869c42d5718, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B66AF0E1:
+        m_Texture: {fileID: 2800000, guid: 2132a619e717b924fb4bee704f343eef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -67,10 +75,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture:
-        m_Texture: {fileID: 2800000, guid: e9fe1c4af3f6d6b4cac3118c5772ff82, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -85,6 +89,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_2E11270D: 0
+    - Vector1_39D35881: 0
+    - Vector1_3B48FD24: -0.32
+    - Vector1_5AE4170F: -0.11
+    - Vector1_80CAEB23: 0.01
+    - Vector1_8E5091B8: 3.77
+    - Vector1_981A3A67: 1
+    - Vector1_C1C7D298: 0.45
+    - Vector1_ECB3F2B8: 0.7
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -99,13 +112,12 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -115,23 +127,18 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _ToonRampOffset: -1.6
-    - _ToonRampSmoot: 0
-    - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _rim_Light_Brightnes: -0.06
-    - _rimpower: 5
     m_Colors:
-    - _BaseColor: {r: 0.90188676, g: 0.45434666, b: 0.45434666, a: 1}
-    - _Color: {r: 0.90188676, g: 0.4543466, b: 0.4543466, a: 1}
+    - Color_27D4D743: {r: 0, g: 0.60368633, b: 1, a: 0}
+    - Color_51A4B6EC: {r: 0, g: 0.35294822, b: 0.4641509, a: 0}
+    - Color_C347D0B: {r: 0.013136267, g: 0.32688615, b: 0.4641509, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _ToonRampTinting: {r: 0.5471698, g: 0, b: 0, a: 0}
-    - _color: {r: 0.5999999, g: 0.039622553, b: 0.11300529, a: 0}
-    - _rim_color: {r: 0.02641511, g: 0.02641511, b: 0.02641511, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2716176055884820210
+--- !u!114 &539616700253158052
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
