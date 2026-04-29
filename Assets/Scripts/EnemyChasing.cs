@@ -26,7 +26,8 @@ public class EnemyChasing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChasePlayer()
+        if (player == null || isCaught) return;
+         ChasePlayer()
     }
 
      void ChasePlayer()
@@ -43,7 +44,7 @@ public class EnemyChasing : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
-            
+            Debug.Log("Player is Kill");
         }
     }
 }
