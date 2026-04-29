@@ -2584,7 +2584,7 @@ GameObject:
   - component: {fileID: 593623800}
   - component: {fileID: 593623796}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: NextLevelTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26beb0aa3e089894aadab8e6ec90e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 1
+  sceneName: Level 3
 --- !u!1 &620897747
 GameObject:
   m_ObjectHideFlags: 0
