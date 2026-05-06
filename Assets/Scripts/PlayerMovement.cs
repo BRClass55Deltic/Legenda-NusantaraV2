@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     Rigidbody rb;
 
+    private Animator anim;
+
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -48,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         RotatePlayer();
+
+        bool isMoving = (horizontalInput != 0 || verticalInput != 0);
+    
+        anim.SetBool("isWalking", isMoving);
 
         // Handle drag
         if (grounded)
