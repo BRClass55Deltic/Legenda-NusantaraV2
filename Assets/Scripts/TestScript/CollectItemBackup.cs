@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectCrystal : MonoBehaviour
+public class CollectItemBackup : MonoBehaviour
 {
+    //COPAS SKRIP INI JIKA COLLECTITEM MENGALAMI BUG / SKRIP BARU TIDAK SESUAI
+    
     public RandomObjManager ObjManager;
 
     [Header("UI Reference")]
@@ -31,7 +33,7 @@ public class CollectCrystal : MonoBehaviour
         // 1. Kirim data UI ke manager
         if (ObjManager != null)
         {
-            ObjManager.CollectCrystal(myUIElement);
+            ObjManager.CollectItem(myUIElement);
         }
 
         // 2. Putar suara secara mandiri

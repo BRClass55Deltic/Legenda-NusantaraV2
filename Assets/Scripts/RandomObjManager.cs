@@ -1,55 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RandomObjManager : MonoBehaviour
 {
-    public int totalCrystal = 3;
-    private int currentCrystal = 0;
+    public int totalItems = 3;
+    private int currentItems = 0;
 
-    [Header("Win Trigger")]
+    [Header("Win Settings")]
     public GameObject winTrigger;
-
     public Arrow_Pointer arrowPointer;
+
+    [Header("Level 1 Settings (Text Mode)")]
+    public TextMeshProUGUI counterText; // Taruh UI Text di sini
+    public string itemPrefix = "Sayur: "; // Contoh: "Sayur: "
 
     void Start()
     {
         if (winTrigger != null) winTrigger.SetActive(false);
-        
-        // Matikan panah di awal game
         if (arrowPointer != null) arrowPointer.SetVisible(false);
+        
+        UpdateTextUI(); // Update teks di awal
     }
-    // Fungsi menerima parameter UI dari CrystalCollectable
-    public void CollectCrystal(GameObject specificCrystalUI)
-    {
-        currentCrystal++;
 
-        // Aktifkan UI yang dibawa oleh kristal tersebut
-        if (specificCrystalUI != null)
+    // Fungsi utama yang dipanggil item
+    public void CollectItem(GameObject specificUI)
+    {
+        currentItems++;
+
+        // MODE LEVEL 3: Jika ada referensi Image UI, nyalakan
+        if (specificUI != null)
         {
-            specificCrystalUI.SetActive(true);
+            specificUI.SetActive(true);
         }
 
-        // Cek kemenangan
-        if (currentCrystal >= totalCrystal)
+        // MODE LEVEL 1: Update Teks Counter
+        UpdateTextUI();
+
+        // Cek Kemenangan
+        if (currentItems >= totalItems)
         {
-            Debug.Log("Semua kristal terkumpul!");
             ActivateWinCondition();
         }
     }
 
-    void ActivateWinCondition()
-   {
-        if (winTrigger != null)
+    void UpdateTextUI()
+    {
+        if (counterText != null)
         {
-            winTrigger.SetActive(true);
+            counterText.text = itemPrefix + currentItems + "/" + totalItems;
+        }
+    }
 
-            // Perintah panah untuk aktif dan menunjuk ke arah Win Trigger
-            if (arrowPointer != null)
-            {
-                arrowPointer.SetVisible(true);
-                arrowPointer.SetTarget(winTrigger.transform);
-            }
+    void ActivateWinCondition()
+    {
+        if (winTrigger != null) winTrigger.SetActive(true);
+        if (arrowPointer != null)
+        {
+            arrowPointer.SetVisible(true);
+            arrowPointer.SetTarget(winTrigger.transform);
         }
     }
 }
