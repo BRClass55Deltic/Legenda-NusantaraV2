@@ -364,11 +364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8457240930176328030, guid: a81cc63c716bb4f41833e49172003e81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.69
+      value: 18.87
       objectReference: {fileID: 0}
     - target: {fileID: 8457240930176328030, guid: a81cc63c716bb4f41833e49172003e81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 264.97733
+      value: 267.19
       objectReference: {fileID: 0}
     - target: {fileID: 8457240930176328030, guid: a81cc63c716bb4f41833e49172003e81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1075,7 +1075,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 06220533a86edfe46b575dcdc2f95a8f, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
