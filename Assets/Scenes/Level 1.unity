@@ -750,8 +750,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8913285242745216248, guid: 3e937fc1cf7fb3e45a29fb9ecf3e8bd5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
