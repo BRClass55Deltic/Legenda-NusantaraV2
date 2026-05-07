@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalCrystal: 3
   winTrigger: {fileID: 1068223729}
+  arrowPointer: {fileID: 1237357179}
 --- !u!1 &79202066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,7 +6952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1237357178
 Transform:
   m_ObjectHideFlags: 0

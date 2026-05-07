@@ -10,12 +10,15 @@ public class RandomObjManager : MonoBehaviour
     [Header("Win Trigger")]
     public GameObject winTrigger;
 
+    public Arrow_Pointer arrowPointer;
+
     void Start()
     {
-        if (winTrigger != null)
-            winTrigger.SetActive(false);
+        if (winTrigger != null) winTrigger.SetActive(false);
+        
+        // Matikan panah di awal game
+        if (arrowPointer != null) arrowPointer.SetVisible(false);
     }
-
     // Fungsi menerima parameter UI dari CrystalCollectable
     public void CollectCrystal(GameObject specificCrystalUI)
     {
@@ -36,8 +39,17 @@ public class RandomObjManager : MonoBehaviour
     }
 
     void ActivateWinCondition()
-    {
+   {
         if (winTrigger != null)
+        {
             winTrigger.SetActive(true);
+
+            // Perintah panah untuk aktif dan menunjuk ke arah Win Trigger
+            if (arrowPointer != null)
+            {
+                arrowPointer.SetVisible(true);
+                arrowPointer.SetTarget(winTrigger.transform);
+            }
+        }
     }
 }
