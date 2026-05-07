@@ -4794,6 +4794,7 @@ MonoBehaviour:
   myUIElement: {fileID: 1602361939}
   pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
   volume: 1
+  interactionPrompt: {fileID: 1116443244}
 --- !u!1001 &877470707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5688,6 +5689,7 @@ MonoBehaviour:
   myUIElement: {fileID: 337449864}
   pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
   volume: 1
+  interactionPrompt: {fileID: 1116443244}
 --- !u!65 &1031005584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6364,7 +6366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1116443245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9814,6 +9816,7 @@ MonoBehaviour:
   myUIElement: {fileID: 1614786961}
   pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
   volume: 1
+  interactionPrompt: {fileID: 1116443244}
 --- !u!1001 &1813876396
 PrefabInstance:
   m_ObjectHideFlags: 0

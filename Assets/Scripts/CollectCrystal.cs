@@ -10,28 +10,67 @@ public class CollectCrystal : MonoBehaviour
     public GameObject myUIElement; // Drag UI spesifik kristal ini di Inspector
 
     [Header("Audio Settings")]
-    public AudioClip pickupSFX; // Masukkan file audio kristal di sini
+    public AudioClip pickupSFX; 
     [Range(0f, 1f)] public float volume = 1f;
+
+    [Header("Interaction Settings")]
+    public GameObject interactionPrompt; // Opsional: Munculkan teks "Press E"
+    private bool isPlayerNearby = false;
+
+    private void Update()
+    {
+        // Cek apakah player di dekat kristal dan menekan tombol E
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        {
+            DoCollect();
+        }
+    }
+
+    private void DoCollect()
+    {
+        // 1. Kirim data UI ke manager
+        if (ObjManager != null)
+        {
+            ObjManager.CollectCrystal(myUIElement);
+        }
+
+        // 2. Putar suara secara mandiri
+        if (pickupSFX != null)
+        {
+            AudioSource.PlayClipAtPoint(pickupSFX, transform.position, volume);
+        }
+
+        // 3. Matikan prompt interaksi sebelum objek dihancurkan
+        if (interactionPrompt != null)
+        {
+            interactionPrompt.SetActive(false);
+        }
+
+        // 4. Hancurkan kristal
+        Destroy(gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // 1. Kirim data UI ke manager
-            if (ObjManager != null)
-            {
-                ObjManager.CollectCrystal(myUIElement);
-            }
+            isPlayerNearby = true;
 
-            // 2. Putar suara secara mandiri
-            // PlayClipAtPoint membuat objek audio sementara di posisi kristal
-            if (pickupSFX != null)
-            {
-                AudioSource.PlayClipAtPoint(pickupSFX, transform.position, volume);
-            }
+            // Munculkan teks "Press E" jika ada
+            if (interactionPrompt != null)
+                interactionPrompt.SetActive(true);
+        }
+    }
 
-            // 3. Hancurkan kristal
-            Destroy(gameObject);
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearby = false;
+
+            // Sembunyikan teks "Press E" saat menjauh
+            if (interactionPrompt != null)
+                interactionPrompt.SetActive(false);
         }
     }
 }
