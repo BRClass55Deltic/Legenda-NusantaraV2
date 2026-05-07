@@ -228,9 +228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4f12af14567e745917aaddd821c92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCrystal: 3
+  totalItems: 3
   winTrigger: {fileID: 1068223729}
   arrowPointer: {fileID: 1237357179}
+  counterText: {fileID: 0}
+  itemPrefix: 'Sayur: '
 --- !u!1 &79202066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,7 +4794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjManager: {fileID: 24423965}
   myUIElement: {fileID: 1602361939}
-  pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
+  pickupSFX: {fileID: 8300000, guid: d9a3e43e164452b41b1903bd3f155689, type: 3}
   volume: 1
   interactionPrompt: {fileID: 1116443244}
 --- !u!1001 &877470707
@@ -5687,7 +5689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjManager: {fileID: 24423965}
   myUIElement: {fileID: 337449864}
-  pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
+  pickupSFX: {fileID: 8300000, guid: d9a3e43e164452b41b1903bd3f155689, type: 3}
   volume: 1
   interactionPrompt: {fileID: 1116443244}
 --- !u!65 &1031005584
@@ -9313,8 +9315,8 @@ Transform:
   m_Children:
   - {fileID: 24423964}
   - {fileID: 1783587505}
-  - {fileID: 1812088402}
   - {fileID: 1031005582}
+  - {fileID: 1812088402}
   - {fileID: 869340876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9814,7 +9816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjManager: {fileID: 24423965}
   myUIElement: {fileID: 1614786961}
-  pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
+  pickupSFX: {fileID: 8300000, guid: d9a3e43e164452b41b1903bd3f155689, type: 3}
   volume: 1
   interactionPrompt: {fileID: 1116443244}
 --- !u!1001 &1813876396
