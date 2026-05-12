@@ -2834,6 +2834,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2980342030908224887, guid: 876554c4524896e45a8687c6b8033597, type: 3}
   m_PrefabInstance: {fileID: 1372883435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1434725380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+  m_PrefabInstance: {fileID: 1603413714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1434725381
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434725380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af5faccc6385a8c4e8311e35e9e5ede7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1434725385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434725380}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8674469, y: 0.97564125, z: 3.4894216}
+  m_Center: {x: 0.0011978149, y: -0.1232996, z: -0.050457}
 --- !u!1001 &1581047769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3056,6 +3103,69 @@ Transform:
   - {fileID: 1192165873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1603413714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 180.30545
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.79
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 255.6482
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      propertyPath: m_Name
+      value: Pancingan interaktif
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1434725381}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1434725385}
+  m_SourcePrefab: {fileID: 100100000, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
 --- !u!1001 &1634798565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4866,3 +4976,4 @@ SceneRoots:
   - {fileID: 1063772215}
   - {fileID: 153820926}
   - {fileID: 1372883435}
+  - {fileID: 1603413714}
