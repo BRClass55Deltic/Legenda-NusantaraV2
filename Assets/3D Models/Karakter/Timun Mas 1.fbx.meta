@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Pancingan|Fishing F
-      takeName: Pancingan|Fishing F
+      name: kepala|Run F (1)
+      takeName: kepala|Run F
       internalID: -8491081205109738461
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -57,8 +57,110 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      - path: Cube.002
+        weight: 1
+      - path: Cube.003
+        weight: 1
+      - path: Cube.005
+        weight: 1
+      - path: Cube.006
+        weight: 1
+      - path: Pancingan
+        weight: 0
+      - path: Pancingan/Bone
+        weight: 0
+      - path: Pancingan/Bone/Bone.001
+        weight: 0
+      - path: Pancingan/Bone/Bone.001/Bone.002
+        weight: 1
+      - path: Pancingan/Bone/Bone.001/Bone.002/Bone.003
+        weight: 1
+      - path: Pancingan/Bone/Bone.001/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Pancingan/Bone/Bone.001/Bone.002/Bone.003/Bone.004/Bone.004_end
+        weight: 1
+      - path: pancingan
+        weight: 0
+      - path: Timun Mas
+        weight: 1
+      - path: Timun Mas/Bone
+        weight: 1
+      - path: Timun Mas/Bone/Bone_end
+        weight: 1
+      - path: Timun Mas/kepala
+        weight: 1
+      - path: Timun Mas/kepala/badan
+        weight: 1
+      - path: Timun Mas/kepala/badan/kepala
+        weight: 1
+      - path: Timun Mas/kepala/badan/kepala/kepala_end
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/jari1.l
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/jari1.l/jari2.l
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/jari1.l/jari2.l/jari2.l_end
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/tangan.l.001
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/tangan.l.001/tangan.l.002
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.l/lengan2.l/tangan.l/tangan.l.001/tangan.l.002/tangan.l.002_end
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/jari1.r
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/jari1.r/jari2.r
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/jari1.r/jari2.r/jari2.r_end
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/tangan.r.001
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/tangan.r.001/tangan.r.002
+        weight: 1
+      - path: Timun Mas/kepala/badan/lengan1.r/lengan2.r/tangan.r/tangan.r.001/tangan.r.002/tangan.r.002_end
+        weight: 1
+      - path: Timun Mas/kepala/pinggan
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.l
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.l/kaki.l
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.l/kaki.l/kaki.l_end
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.r
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.r/kaki.r
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/paha.r/kaki.r/kaki.r_end
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/S1
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/S1/S2
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/S1/S2/S3
+        weight: 1
+      - path: Timun Mas/kepala/pinggan/S1/S2/S3/S3_end
+        weight: 1
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
