@@ -9,7 +9,8 @@ public class Fishingmekanik : MonoBehaviour
     [SerializeField] Transform toppivot;
     [SerializeField] Transform botompivot;
     [SerializeField] Transform fish;
-
+    public GameObject kait;
+    
     float fishposition;
     float fishDestination;
 
@@ -21,21 +22,28 @@ public class Fishingmekanik : MonoBehaviour
 
     [SerializeField] Transform hook;
     float hookPosition;
-    [SerializeField] float Hooksize=0.1f;
-    [SerializeField] float Hookpower=0.5f;
+    [SerializeField] float Hooksize = 0.1f;
+    [SerializeField] float Hookpower = 0.5f;
     float hookProgress;
     float hookpullvelocity;
-    [SerializeField] float hookpullpower=0.01f;
-    [SerializeField] float hookpullGravityPower=0.005f;
-    [SerializeField] float hookprogressDegradtionpower=0.1f;
+    [SerializeField] float hookpullpower = 0.01f;
+    [SerializeField] float hookpullGravityPower = 0.005f;
+    [SerializeField] float hookprogressDegradtionpower = 0.1f;
 
     [SerializeField] RawImage HookImage;
     [SerializeField] Transform ProgressBar;
 
-    bool pause=false;
+    public Animator Kaitanim;
+    public Animator anim;
+    bool pause = false;
+
+    bool sedangMancing = false;
+
+    // TAMBAHAN
+    bool idle = true;
 
     [SerializeField] float failTime = 10f;
-    // Start is called before the first frame update
+
     void Start()
     {
         Resize();
@@ -45,22 +53,65 @@ public class Fishingmekanik : MonoBehaviour
     {
         RectTransform rect = HookImage.rectTransform;
         float ysize = rect.rect.height;
+
         Vector3 ls = hook.localScale;
         float distance = Vector3.Distance(toppivot.position, botompivot.position);
-        ls.y=(distance/ysize*Hooksize);
+
+        ls.y = (distance / ysize * Hooksize);
         hook.localScale = ls;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Jika masih idle, tunggu SPACE
+        if (idle)
+        {
+            Idle();
+            return;
+        }
+
         if (pause)
         {
             return;
         }
+
+        if (sedangMancing)
+        {
+            SedangMancing();
+        }
+
         Fish();
         Hook();
         ProgressCheck();
+    }
+
+    // TAMBAHAN
+    public void Idle()
+    {
+        kait.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("mancing",true);
+            anim.SetBool("sedang mancing", false);
+            idle = false;
+            sedangMancing = true;
+            kait.SetActive(true);
+            Debug.Log("Mini game dimulai!");
+        }
+    }
+
+    public bool IsIdle()
+    {
+        return idle;
+    }
+
+    private void SedangMancing()
+    {
+        kait.SetActive(true);
+
+        Kaitanim.SetBool("kait idle", true);
+        Kaitanim.SetBool("kait diangkat", false);
     }
 
     private void ProgressCheck()
@@ -72,67 +123,108 @@ public class Fishingmekanik : MonoBehaviour
         float min = hookPosition - Hooksize / 2;
         float max = hookPosition + Hooksize / 3;
 
-        if (min < fishposition && fishposition<max)
+        if (min < fishposition && fishposition < max)
         {
             hookProgress += Hookpower * Time.deltaTime;
         }
-
         else
         {
             hookProgress -= hookprogressDegradtionpower * Time.deltaTime;
+
             failTime -= Time.deltaTime;
+
             if (failTime < 0)
             {
                 Lose();
             }
         }
-        if(hookProgress >=1f)
+
+        if (hookProgress >= 1f)
         {
             Win();
         }
 
         hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
-
     }
 
     private void Hook()
     {
-        if(Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0))
         {
             hookpullvelocity += hookpullpower * Time.deltaTime;
             Debug.Log("Mouse ditekan");
         }
+
         hookpullvelocity -= hookpullGravityPower * Time.deltaTime;
 
         hookPosition += hookpullvelocity;
-        hookPosition = Mathf.Clamp(hookPosition, Hooksize/2, 1-Hooksize/2);
+
+        hookPosition = Mathf.Clamp(hookPosition, Hooksize / 2, 1 - Hooksize / 2);
+
         hook.position = Vector3.Lerp(botompivot.position, toppivot.position, hookPosition);
     }
 
     private void Fish()
     {
         fishtimer -= Time.deltaTime;
+
         if (fishtimer < 0)
         {
             fishtimer = UnityEngine.Random.value * timeMultiplication;
-
             fishDestination = UnityEngine.Random.value;
         }
 
-        fishposition = Mathf.SmoothDamp(fishposition, fishDestination, ref fishspeed, smoothMotion);
-        fish.position = Vector3.Lerp(botompivot.position, toppivot.position, fishposition);
+        fishposition = Mathf.SmoothDamp(
+            fishposition,
+            fishDestination,
+            ref fishspeed,
+            smoothMotion
+        );
+
+        fish.position = Vector3.Lerp(
+            botompivot.position,
+            toppivot.position,
+            fishposition
+        );
+    }
+
+    private void ResetGame()
+    {
+        idle = true;
+        pause = false;
+
+        hookProgress = 0f;
+        failTime = 10f;
+
+        hookpullvelocity = 0f;
+        hookPosition = 0.5f;
+
+        fishposition = 0.5f;
+        fishDestination = Random.value;
+    }
+
+    public void Win()
+    {
+        anim.SetBool("mancing", false);
+        anim.SetBool("sedang mancing", true);
+        Kaitanim.SetBool("kait idle",false);
+        Kaitanim.SetBool("kait diangkat", true);
+        Kaitanim.SetBool("kait idle", false);
+        Debug.Log("WIN!");
+        Invoke(nameof(ResetGame),0.35f);
         
     }
 
-    private void Win()
+    public void Lose()
     {
-        pause = true;
-        Debug.Log("WIn!");
-    }
-
-    private void Lose()
-    {
-        pause = true;
-        Debug.Log("you lose!");
+        anim.SetBool("mancing", false);
+        anim.SetBool("sedang mancing", true);
+        sedangMancing = false;
+        Kaitanim.SetBool("kait idle", false);
+        Kaitanim.SetBool("kait diangkat", true);
+        Kaitanim.SetBool("kait idle", false);
+        Debug.Log("YOU LOSE!");
+        Invoke(nameof(ResetGame), 0.35f);
+        
     }
 }
