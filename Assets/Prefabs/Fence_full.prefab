@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3898854127847267232}
   - component: {fileID: 7031410307756139410}
   - component: {fileID: 6177766231302451051}
-  - component: {fileID: 4561400453709181507}
+  - component: {fileID: 3026025618131587312}
   m_Layer: 0
   m_Name: Collision Box
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4561400453709181507
-MeshCollider:
+--- !u!65 &3026025618131587312
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5044571233623794096, guid: 368e46a25229a7b4c9f0b7d41bf04ca6, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.64302176, y: 3.6982563, z: 4.6670413}
+  m_Center: {x: 0, y: 1.8727151, z: 0}
 --- !u!1 &1349349519261330422
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +166,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16cdf608ad5b2c947a63a209e0f76cc0, type: 2}
+  - {fileID: 2100000, guid: f9607e0e165dbc049942e0a76bc5c620, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: faf4cd1e779915a44851179810097f08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,8 +295,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7758795341608666651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.97998387, z: 0, w: 0.19907723}
-  m_LocalPosition: {x: 139.64, y: 0.0000009536743, z: 28.32}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 206.17976, y: 22.669172, z: 207.16672}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -305,4 +304,4 @@ Transform:
   - {fileID: 4629394552865746367}
   - {fileID: 2627163194693952419}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 157.034, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
