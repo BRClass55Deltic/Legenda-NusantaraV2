@@ -37,16 +37,16 @@ public class macing : MonoBehaviour
 
         if(!pancinganinterktik.activeSelf)
         {
-            anim.SetBool("sedang mancing", true);
+            anim.SetInteger("system", 1);
         }
 
         if(pancinganinterktik.activeSelf)
         {
-            anim.SetBool("sedang mancing", false);
+            anim.SetInteger("system", 0);
         }
 
         // Keluar mancing
-        if (isFishing && Input.GetKeyDown(KeyCode.Q))
+        if (isFishing && fishingMekanik.IsIdle() && Input.GetKeyDown(KeyCode.Q))
         {
             StopFishing();
         }

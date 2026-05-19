@@ -92,8 +92,7 @@ public class Fishingmekanik : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("mancing",true);
-            anim.SetBool("sedang mancing", false);
+            anim.SetInteger("system", 2);
             idle = false;
             sedangMancing = true;
             kait.SetActive(true);
@@ -152,18 +151,27 @@ public class Fishingmekanik : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             hookpullvelocity += hookpullpower * Time.deltaTime;
-            Debug.Log("Mouse ditekan");
         }
 
         hookpullvelocity -= hookpullGravityPower * Time.deltaTime;
+
+        hookpullvelocity = Mathf.Clamp(hookpullvelocity, -0.02f, 0.02f);
 
         hookPosition += hookpullvelocity;
 
         hookPosition = Mathf.Clamp(hookPosition, Hooksize / 2, 1 - Hooksize / 2);
 
-        hook.position = Vector3.Lerp(botompivot.position, toppivot.position, hookPosition);
-    }
+        if (hookPosition <= Hooksize / 2 || hookPosition >= 1 - Hooksize / 2)
+        {
+            hookpullvelocity = 0f;
+        }
 
+        hook.position = Vector3.Lerp(
+            botompivot.position,
+            toppivot.position,
+            hookPosition
+        );
+    }
     private void Fish()
     {
         fishtimer -= Time.deltaTime;
@@ -205,8 +213,9 @@ public class Fishingmekanik : MonoBehaviour
 
     public void Win()
     {
-        anim.SetBool("mancing", false);
-        anim.SetBool("sedang mancing", true);
+        anim.SetInteger("system", 3);
+        anim.SetBool("menang", true);
+        sedangMancing = false;
         Kaitanim.SetBool("kait idle",false);
         Kaitanim.SetBool("kait diangkat", true);
         Kaitanim.SetBool("kait idle", false);
@@ -217,8 +226,8 @@ public class Fishingmekanik : MonoBehaviour
 
     public void Lose()
     {
-        anim.SetBool("mancing", false);
-        anim.SetBool("sedang mancing", true);
+        anim.SetInteger("system", 3);
+        anim.SetBool("menang", false);
         sedangMancing = false;
         Kaitanim.SetBool("kait idle", false);
         Kaitanim.SetBool("kait diangkat", true);
