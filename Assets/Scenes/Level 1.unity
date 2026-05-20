@@ -2583,7 +2583,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60.000004
+  field of view: 70
   orthographic: 0
   orthographic size: 10
   m_Depth: 1
@@ -4522,6 +4522,19 @@ MonoBehaviour:
   pancinganInteraktif: {fileID: 1434725380}
   pancingan: {fileID: 866652629}
   playerMasuk: 0
+--- !u!114 &1434725392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434725380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628aa379b0fafba4cbeac8516bebcc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skripTarget: {fileID: 1434725389}
 --- !u!1001 &1540571145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4778,6 +4791,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1434725385}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1434725392}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2372b7f5c8123674da4c1bbd8e6a836e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1434725389}
@@ -5384,7 +5400,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1062611110}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 70
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5410,7 +5426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829171595}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 185.8982, y: 29.2414, z: 249.36314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
