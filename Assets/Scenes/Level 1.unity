@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2049,7 +2049,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2266,7 +2266,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2766,6 +2766,7 @@ MonoBehaviour:
   toppivot: {fileID: 1018905304}
   botompivot: {fileID: 1018905303}
   fish: {fileID: 1018905302}
+  questManager: {fileID: 0}
   kait: {fileID: 848472705}
   timeMultiplication: 3
   smoothMotion: 1
@@ -3339,7 +3340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6390165284995461365, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
       propertyPath: m_margin.z
-      value: -317.54218
+      value: -1026.5522
       objectReference: {fileID: 0}
     - target: {fileID: 6390165284995461365, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
       propertyPath: m_fontSizeBase
@@ -3599,7 +3600,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -4877,7 +4878,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5164,7 +5165,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5213,7 +5214,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5976,23 +5977,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questSteps:
   - questText: Mancing
-    targetAmount: 0
+    targetAmount: 1
     itemPrefix: 'Ikan:'
     useTextCounter: 1
     useItemIcons: 0
     itemUIContainer: {fileID: 0}
-  - questText: Ambil 11 Sayur
+    isCollectionStep: 1
+  - questText: 'Sayur:'
     targetAmount: 11
-    itemPrefix: 
+    itemPrefix: 'Sayur:'
     useTextCounter: 1
     useItemIcons: 0
     itemUIContainer: {fileID: 0}
-  - questText: Kembali Ke Rumah
+    isCollectionStep: 1
+  - questText: Balik
     targetAmount: 0
     itemPrefix: 
     useTextCounter: 1
     useItemIcons: 0
     itemUIContainer: {fileID: 0}
+    isCollectionStep: 0
   questTMP: {fileID: 1524183469}
   counterTMP: {fileID: 2136740541}
   winTrigger: {fileID: 1372883437}
@@ -6363,7 +6367,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -6396,7 +6400,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -6465,7 +6469,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 2009256037}
+      objectReference: {fileID: 0}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 

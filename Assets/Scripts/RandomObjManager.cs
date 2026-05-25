@@ -18,6 +18,8 @@ public class QuestStep
     public bool useItemIcons = false;
 
     public GameObject itemUIContainer;
+
+    public bool isCollectionStep = true;
 }
 
 public class RandomObjManager : MonoBehaviour
@@ -102,6 +104,12 @@ public class RandomObjManager : MonoBehaviour
 
     public void CollectItem(GameObject specificUI)
     {
+        
+        if (currentStep >= questSteps.Length)
+        {
+            return;
+        }
+        
         QuestStep step = questSteps[currentStep];
 
         currentAmount++;
@@ -119,7 +127,7 @@ public class RandomObjManager : MonoBehaviour
         }
 
         // Objective selesai
-        if (currentAmount >= step.targetAmount)
+        if (step.isCollectionStep && currentAmount >= step.targetAmount)
         {
             CompleteStep();
         }

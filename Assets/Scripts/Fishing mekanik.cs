@@ -9,6 +9,7 @@ public class Fishingmekanik : MonoBehaviour
     [SerializeField] Transform toppivot;
     [SerializeField] Transform botompivot;
     [SerializeField] Transform fish;
+    [SerializeField] RandomObjManager questManager;
     public GameObject kait;
     
     float fishposition;
@@ -220,6 +221,12 @@ public class Fishingmekanik : MonoBehaviour
         Kaitanim.SetBool("kait diangkat", true);
         Kaitanim.SetBool("kait idle", false);
         Debug.Log("WIN!");
+
+        if (questManager != null)
+        {
+            questManager.CollectItem(null);
+        }
+        
         Invoke(nameof(ResetGame),0.35f);
         
     }
