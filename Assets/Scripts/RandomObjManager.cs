@@ -3,30 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
+public class QuestStep
+{
+    [TextArea]
+    public string questText;
+
+    public int targetAmount;
+
+    public string itemPrefix;
+
+    public bool useTextCounter = true;
+
+    public bool useItemIcons = false;
+
+    public GameObject itemUIContainer;
+}
+
 public class RandomObjManager : MonoBehaviour
 {
-    [Header("Collect Settings")]
-    public int totalItems = 3;
-    private int currentItems = 0;
+    [Header("Quest Steps")]
+    public QuestStep[] questSteps;
+
+    private int currentStep = 0;
+    private int currentAmount = 0;
+
+    [Header("UI")]
+    public TextMeshProUGUI questTMP;
+    public TextMeshProUGUI counterTMP;
 
     [Header("Win Settings")]
     public GameObject winTrigger;
     public Arrow_Pointer arrowPointer;
-
-    [Header("Counter UI")]
-    public TextMeshProUGUI counterText;
-    public string itemPrefix = "Item: ";
-
-    [Header("Quest UI")]
-    public TextMeshProUGUI questText;
-
-    [TextArea]
-    public string[] questSteps;
-
-    private int currentQuestStep = 0;
-
-    [Header("UI Item Container")]
-    public GameObject itemUIContainer;
 
     void Start()
     {
@@ -36,85 +44,131 @@ public class RandomObjManager : MonoBehaviour
         if (arrowPointer != null)
             arrowPointer.SetVisible(false);
 
-        UpdateQuestUI();
-        UpdateTextUI();
+        SetupCurrentStep();
     }
 
     // =========================
-    // QUEST SYSTEM
+    // SETUP STEP
     // =========================
 
-    void UpdateQuestUI()
+    void SetupCurrentStep()
     {
-        if (questText != null &&
-            currentQuestStep < questSteps.Length)
+        currentAmount = 0;
+
+        QuestStep step = questSteps[currentStep];
+
+        // Update quest text
+        if (questTMP != null)
         {
-            questText.text = questSteps[currentQuestStep];
+            questTMP.text = step.questText;
+        }
+
+        // Counter UI
+        if (counterTMP != null)
+        {
+            counterTMP.gameObject.SetActive(step.useTextCounter);
+
+            if (step.useTextCounter)
+            {
+                UpdateCounterUI();
+            }
+        }
+
+        // Item UI Container
+        if (step.itemUIContainer != null)
+        {
+            step.itemUIContainer.SetActive(step.useItemIcons);
         }
     }
 
-    public void NextQuestStep()
-    {
-        currentQuestStep++;
+    // =========================
+    // UPDATE COUNTER
+    // =========================
 
-        if (currentQuestStep < questSteps.Length)
-        {
-            UpdateQuestUI();
-        }
+    void UpdateCounterUI()
+    {
+        QuestStep step = questSteps[currentStep];
+
+        counterTMP.text =
+            step.itemPrefix +
+            currentAmount +
+            "/" +
+            step.targetAmount;
     }
 
     // =========================
-    // ITEM COLLECT SYSTEM
+    // COLLECT ITEM
     // =========================
 
     public void CollectItem(GameObject specificUI)
     {
-        currentItems++;
+        QuestStep step = questSteps[currentStep];
 
-        // Level 3 icon item
+        currentAmount++;
+
+        // Aktifkan icon item
         if (specificUI != null)
         {
             specificUI.SetActive(true);
         }
 
-        UpdateTextUI();
-
-        // Semua item terkumpul
-        if (currentItems >= totalItems)
+        // Update counter
+        if (step.useTextCounter)
         {
-            FinishCollectObjective();
+            UpdateCounterUI();
+        }
+
+        // Objective selesai
+        if (currentAmount >= step.targetAmount)
+        {
+            CompleteStep();
         }
     }
 
-    void UpdateTextUI()
+    // =========================
+    // COMPLETE STEP
+    // =========================
+
+    void CompleteStep()
     {
-        if (counterText != null)
+        QuestStep step = questSteps[currentStep];
+
+        // Matikan item UI
+        if (step.itemUIContainer != null)
         {
-            counterText.text =
-                itemPrefix + currentItems + "/" + totalItems;
+            step.itemUIContainer.SetActive(false);
+        }
+
+        currentStep++;
+
+        // Masih ada step berikutnya
+        if (currentStep < questSteps.Length)
+        {
+            SetupCurrentStep();
+
+            // Step terakhir = pergi ke tujuan
+            if (currentStep == questSteps.Length - 1)
+            {
+                ActivateWinCondition();
+            }
         }
     }
 
-    void FinishCollectObjective()
-    {
-        // Next quest
-        NextQuestStep();
+    // =========================
+    // WIN CONDITION
+    // =========================
 
-        // Aktifkan win trigger
+    void ActivateWinCondition()
+    {
         if (winTrigger != null)
+        {
             winTrigger.SetActive(true);
+        }
 
-        // Arrow
         if (arrowPointer != null)
         {
             arrowPointer.SetVisible(true);
             arrowPointer.SetTarget(winTrigger.transform);
-        }
-
-        // Hilangkan UI item
-        if (itemUIContainer != null)
-        {
-            itemUIContainer.SetActive(false);
         }
     }
 }

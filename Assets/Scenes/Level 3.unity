@@ -228,16 +228,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4f12af14567e745917aaddd821c92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalItems: 3
+  questSteps:
+  - questText: Kumpulkan 3 Item
+    targetAmount: 3
+    itemPrefix: 
+    useTextCounter: 0
+    useItemIcons: 1
+    itemUIContainer: {fileID: 58800657}
+  - questText: Run
+    targetAmount: 0
+    itemPrefix: 
+    useTextCounter: 1
+    useItemIcons: 0
+    itemUIContainer: {fileID: 0}
+  questTMP: {fileID: 1668032555}
+  counterTMP: {fileID: 0}
   winTrigger: {fileID: 1068223729}
   arrowPointer: {fileID: 1237357179}
-  counterText: {fileID: 0}
-  itemPrefix: 'Sayur: '
-  questText: {fileID: 1668032555}
-  questSteps:
-  - Collect Crystalls
-  - NIGERUNDAYO, SMOKEY!!!
-  itemUIContainer: {fileID: 58800657}
 --- !u!1 &58800657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7447097028423794199, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
@@ -6860,7 +6867,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60.000004
+  field of view: 70
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
