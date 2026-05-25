@@ -5,6 +5,7 @@ using TMPro;
 
 public class RandomObjManager : MonoBehaviour
 {
+    [Header("Collect Settings")]
     public int totalItems = 3;
     private int currentItems = 0;
 
@@ -12,36 +13,76 @@ public class RandomObjManager : MonoBehaviour
     public GameObject winTrigger;
     public Arrow_Pointer arrowPointer;
 
-    [Header("Level 1 Settings (Text Mode)")]
-    public TextMeshProUGUI counterText; // Taruh UI Text di sini
-    public string itemPrefix = "Sayur: "; // Contoh: "Sayur: "
+    [Header("Counter UI")]
+    public TextMeshProUGUI counterText;
+    public string itemPrefix = "Item: ";
+
+    [Header("Quest UI")]
+    public TextMeshProUGUI questText;
+
+    [TextArea]
+    public string[] questSteps;
+
+    private int currentQuestStep = 0;
+
+    [Header("UI Item Container")]
+    public GameObject itemUIContainer;
 
     void Start()
     {
-        if (winTrigger != null) winTrigger.SetActive(false);
-        if (arrowPointer != null) arrowPointer.SetVisible(false);
-        
-        UpdateTextUI(); // Update teks di awal
+        if (winTrigger != null)
+            winTrigger.SetActive(false);
+
+        if (arrowPointer != null)
+            arrowPointer.SetVisible(false);
+
+        UpdateQuestUI();
+        UpdateTextUI();
     }
 
-    // Fungsi utama yang dipanggil item
+    // =========================
+    // QUEST SYSTEM
+    // =========================
+
+    void UpdateQuestUI()
+    {
+        if (questText != null &&
+            currentQuestStep < questSteps.Length)
+        {
+            questText.text = questSteps[currentQuestStep];
+        }
+    }
+
+    public void NextQuestStep()
+    {
+        currentQuestStep++;
+
+        if (currentQuestStep < questSteps.Length)
+        {
+            UpdateQuestUI();
+        }
+    }
+
+    // =========================
+    // ITEM COLLECT SYSTEM
+    // =========================
+
     public void CollectItem(GameObject specificUI)
     {
         currentItems++;
 
-        // MODE LEVEL 3: Jika ada referensi Image UI, nyalakan
+        // Level 3 icon item
         if (specificUI != null)
         {
             specificUI.SetActive(true);
         }
 
-        // MODE LEVEL 1: Update Teks Counter
         UpdateTextUI();
 
-        // Cek Kemenangan
+        // Semua item terkumpul
         if (currentItems >= totalItems)
         {
-            ActivateWinCondition();
+            FinishCollectObjective();
         }
     }
 
@@ -49,17 +90,31 @@ public class RandomObjManager : MonoBehaviour
     {
         if (counterText != null)
         {
-            counterText.text = itemPrefix + currentItems + "/" + totalItems;
+            counterText.text =
+                itemPrefix + currentItems + "/" + totalItems;
         }
     }
 
-    void ActivateWinCondition()
+    void FinishCollectObjective()
     {
-        if (winTrigger != null) winTrigger.SetActive(true);
+        // Next quest
+        NextQuestStep();
+
+        // Aktifkan win trigger
+        if (winTrigger != null)
+            winTrigger.SetActive(true);
+
+        // Arrow
         if (arrowPointer != null)
         {
             arrowPointer.SetVisible(true);
             arrowPointer.SetTarget(winTrigger.transform);
+        }
+
+        // Hilangkan UI item
+        if (itemUIContainer != null)
+        {
+            itemUIContainer.SetActive(false);
         }
     }
 }

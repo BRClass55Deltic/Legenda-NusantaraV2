@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab2176d6cc4100c4bb01922d08e26cc3, type: 2}
+  - {fileID: 2100000, guid: f3955d1d7c8a60741a2047be62f27172, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718921626018998438}
   - component: {fileID: 4542651966503900484}
+  - component: {fileID: 585089461552886347}
   m_Layer: 0
   m_Name: Labu
   m_TagString: Untagged
@@ -134,6 +135,28 @@ MonoBehaviour:
   pickupSFX: {fileID: 8300000, guid: e62b8ac6164125643a51a2459f133f30, type: 3}
   volume: 1
   interactionPrompt: {fileID: 0}
+--- !u!64 &585089461552886347
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707917018140703466}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9204776241910800517, guid: a437569cf04449648bc2669b41f631e5, type: 3}
 --- !u!1 &8042664206377866614
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d2687e4618f44343a2fea4496a6cac4, type: 2}
+  - {fileID: 2100000, guid: 92a27e1394fb2354cbc2c032f303356a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
