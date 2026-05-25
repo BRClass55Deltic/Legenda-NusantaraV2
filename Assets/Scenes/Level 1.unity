@@ -5974,17 +5974,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4f12af14567e745917aaddd821c92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalItems: 11
+  questSteps:
+  - questText: Mancing
+    targetAmount: 0
+    itemPrefix: 'Ikan:'
+    useTextCounter: 1
+    useItemIcons: 0
+    itemUIContainer: {fileID: 0}
+  - questText: Ambil 11 Sayur
+    targetAmount: 11
+    itemPrefix: 
+    useTextCounter: 1
+    useItemIcons: 0
+    itemUIContainer: {fileID: 0}
+  - questText: Kembali Ke Rumah
+    targetAmount: 0
+    itemPrefix: 
+    useTextCounter: 1
+    useItemIcons: 0
+    itemUIContainer: {fileID: 0}
+  questTMP: {fileID: 1524183469}
+  counterTMP: {fileID: 2136740541}
   winTrigger: {fileID: 1372883437}
   arrowPointer: {fileID: 5531568266568736169}
-  counterText: {fileID: 2136740541}
-  itemPrefix: 'Sayur: '
-  questText: {fileID: 1524183469}
-  questSteps:
-  - Mancing Rek
-  - Collect Item
-  - Go here
-  itemUIContainer: {fileID: 0}
 --- !u!1001 &2049612635
 PrefabInstance:
   m_ObjectHideFlags: 0
