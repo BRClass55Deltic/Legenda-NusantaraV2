@@ -18,6 +18,7 @@ public class macing : MonoBehaviour
     public MonoBehaviour Pancing;
 
     bool isFishing = false;
+    public Fishinginterktif fishingInterktif;
 
     void Start()
     {
@@ -25,12 +26,13 @@ public class macing : MonoBehaviour
         kait.SetActive(false);
 
         Pancing.enabled = false;
+        pancingan.SetActive(false);
     }
 
     void Update()
     {
         // Mulai mancing
-        if (pancinganinterktik.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if (fishingInterktif.playerMasuk && !isFishing && Input.GetKeyDown(KeyCode.E))
         {
             StartFishing();
         }
