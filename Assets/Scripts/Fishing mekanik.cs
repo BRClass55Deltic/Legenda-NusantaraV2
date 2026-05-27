@@ -9,36 +9,53 @@ public class Fishingmekanik : MonoBehaviour
     [SerializeField] Transform toppivot;
     [SerializeField] Transform botompivot;
     [SerializeField] Transform fish;
+
     [SerializeField] RandomObjManager questManager;
+
     public GameObject kait;
-    
+
     float fishposition;
     float fishDestination;
 
     float fishtimer;
+
     [SerializeField] float timeMultiplication = 3f;
 
     float fishspeed;
+
     [SerializeField] float smoothMotion = 1f;
 
     [SerializeField] Transform hook;
+
     float hookPosition;
+
     [SerializeField] float Hooksize = 0.1f;
+
     [SerializeField] float Hookpower = 0.5f;
+
     float hookProgress;
+
     float hookpullvelocity;
+
     [SerializeField] float hookpullpower = 0.01f;
+
     [SerializeField] float hookpullGravityPower = 0.005f;
+
     [SerializeField] float hookprogressDegradtionpower = 0.1f;
 
     [SerializeField] RawImage HookImage;
+
     [SerializeField] Transform ProgressBar;
 
     public Animator Kaitanim;
+
     public Animator anim;
+
     bool pause = false;
 
     bool sedangMancing = false;
+
+    bool hasWon = false;
 
     // TAMBAHAN
     bool idle = true;
@@ -53,12 +70,18 @@ public class Fishingmekanik : MonoBehaviour
     private void Resize()
     {
         RectTransform rect = HookImage.rectTransform;
+
         float ysize = rect.rect.height;
 
         Vector3 ls = hook.localScale;
-        float distance = Vector3.Distance(toppivot.position, botompivot.position);
+
+        float distance = Vector3.Distance(
+            toppivot.position,
+            botompivot.position
+        );
 
         ls.y = (distance / ysize * Hooksize);
+
         hook.localScale = ls;
     }
 
@@ -82,7 +105,9 @@ public class Fishingmekanik : MonoBehaviour
         }
 
         Fish();
+
         Hook();
+
         ProgressCheck();
     }
 
@@ -94,9 +119,13 @@ public class Fishingmekanik : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetInteger("system", 2);
+
             idle = false;
+
             sedangMancing = true;
+
             kait.SetActive(true);
+
             Debug.Log("Mini game dimulai!");
         }
     }
@@ -111,16 +140,20 @@ public class Fishingmekanik : MonoBehaviour
         kait.SetActive(true);
 
         Kaitanim.SetBool("kait idle", true);
+
         Kaitanim.SetBool("kait diangkat", false);
     }
 
     private void ProgressCheck()
     {
         Vector3 ls = ProgressBar.localScale;
+
         ls.y = hookProgress;
+
         ProgressBar.localScale = ls;
 
         float min = hookPosition - Hooksize / 2;
+
         float max = hookPosition + Hooksize / 3;
 
         if (min < fishposition && fishposition < max)
@@ -156,13 +189,24 @@ public class Fishingmekanik : MonoBehaviour
 
         hookpullvelocity -= hookpullGravityPower * Time.deltaTime;
 
-        hookpullvelocity = Mathf.Clamp(hookpullvelocity, -0.02f, 0.02f);
+        hookpullvelocity = Mathf.Clamp(
+            hookpullvelocity,
+            -0.02f,
+            0.02f
+        );
 
         hookPosition += hookpullvelocity;
 
-        hookPosition = Mathf.Clamp(hookPosition, Hooksize / 2, 1 - Hooksize / 2);
+        hookPosition = Mathf.Clamp(
+            hookPosition,
+            Hooksize / 2,
+            1 - Hooksize / 2
+        );
 
-        if (hookPosition <= Hooksize / 2 || hookPosition >= 1 - Hooksize / 2)
+        if (
+            hookPosition <= Hooksize / 2 ||
+            hookPosition >= 1 - Hooksize / 2
+        )
         {
             hookpullvelocity = 0f;
         }
@@ -173,6 +217,7 @@ public class Fishingmekanik : MonoBehaviour
             hookPosition
         );
     }
+
     private void Fish()
     {
         fishtimer -= Time.deltaTime;
@@ -180,6 +225,7 @@ public class Fishingmekanik : MonoBehaviour
         if (fishtimer < 0)
         {
             fishtimer = UnityEngine.Random.value * timeMultiplication;
+
             fishDestination = UnityEngine.Random.value;
         }
 
@@ -199,48 +245,68 @@ public class Fishingmekanik : MonoBehaviour
 
     private void ResetGame()
     {
+        hasWon = false;
+
         idle = true;
+
         pause = false;
 
         hookProgress = 0f;
+
         failTime = 10f;
 
         hookpullvelocity = 0f;
+
         hookPosition = 0.5f;
 
         fishposition = 0.5f;
+
         fishDestination = Random.value;
     }
 
     public void Win()
     {
+        // Cegah Win dipanggil berkali-kali
+        if (hasWon)
+            return;
+
+        hasWon = true;
+
         anim.SetInteger("system", 3);
+
         anim.SetBool("menang", true);
+
         sedangMancing = false;
-        Kaitanim.SetBool("kait idle",false);
-        Kaitanim.SetBool("kait diangkat", true);
+
         Kaitanim.SetBool("kait idle", false);
+
+        Kaitanim.SetBool("kait diangkat", true);
+
         Debug.Log("WIN!");
 
+        // Tambah progress quest
         if (questManager != null)
         {
             questManager.CollectItem(null);
         }
-        
-        Invoke(nameof(ResetGame),0.35f);
-        
+
+        Invoke(nameof(ResetGame), 0.35f);
     }
 
     public void Lose()
     {
         anim.SetInteger("system", 3);
+
         anim.SetBool("menang", false);
+
         sedangMancing = false;
+
         Kaitanim.SetBool("kait idle", false);
+
         Kaitanim.SetBool("kait diangkat", true);
-        Kaitanim.SetBool("kait idle", false);
+
         Debug.Log("YOU LOSE!");
+
         Invoke(nameof(ResetGame), 0.35f);
-        
     }
 }

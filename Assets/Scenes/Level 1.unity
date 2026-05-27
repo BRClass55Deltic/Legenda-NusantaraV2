@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2049,7 +2049,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2266,7 +2266,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -2586,7 +2586,7 @@ Camera:
   field of view: 70
   orthographic: 0
   orthographic size: 10
-  m_Depth: 1
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 247
@@ -2667,7 +2667,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 1094714898}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -2766,7 +2767,7 @@ MonoBehaviour:
   toppivot: {fileID: 1018905304}
   botompivot: {fileID: 1018905303}
   fish: {fileID: 1018905302}
-  questManager: {fileID: 0}
+  questManager: {fileID: 2009256037}
   kait: {fileID: 848472705}
   timeMultiplication: 3
   smoothMotion: 1
@@ -3541,6 +3542,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa3c05cc6b4eb34b95f447bcdcc42ec, type: 3}
+--- !u!20 &1094714898 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6759152716353610941, guid: 3e937fc1cf7fb3e45a29fb9ecf3e8bd5, type: 3}
+  m_PrefabInstance: {fileID: 422720757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1106467828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3600,7 +3606,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -4878,7 +4884,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5165,7 +5171,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5214,7 +5220,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -5977,7 +5983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questSteps:
   - questText: Mancing
-    targetAmount: 1
+    targetAmount: 5
     itemPrefix: 'Ikan:'
     useTextCounter: 1
     useItemIcons: 0
@@ -6367,7 +6373,7 @@ PrefabInstance:
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 5021299773476276576, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -6400,7 +6406,7 @@ PrefabInstance:
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4540939201867135365, guid: b169ed26f1a9ade42b4fa60beb272425, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -6469,7 +6475,7 @@ PrefabInstance:
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: ObjManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2009256037}
     - target: {fileID: 4542651966503900484, guid: 0e6a389b28a71694688f8b1ae4812455, type: 3}
       propertyPath: interactionPrompt
       value: 
@@ -6877,7 +6883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509507631417114270, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7595136051818834802, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

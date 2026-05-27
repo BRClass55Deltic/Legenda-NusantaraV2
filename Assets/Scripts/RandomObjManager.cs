@@ -149,16 +149,16 @@ public class RandomObjManager : MonoBehaviour
 
         currentStep++;
 
-        // Masih ada step berikutnya
+        // Kalau masih ada step berikutnya
         if (currentStep < questSteps.Length)
         {
-            SetupCurrentStep();
-
-            // Step terakhir = pergi ke tujuan
+            // Kalau step berikutnya adalah step terakhir
             if (currentStep == questSteps.Length - 1)
             {
                 ActivateWinCondition();
             }
+
+            SetupCurrentStep();
         }
     }
 
@@ -178,5 +178,7 @@ public class RandomObjManager : MonoBehaviour
             arrowPointer.SetVisible(true);
             arrowPointer.SetTarget(winTrigger.transform);
         }
+
+        Debug.Log("WIN TRIGGER AKTIF");
     }
 }

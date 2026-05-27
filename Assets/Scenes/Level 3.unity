@@ -235,12 +235,14 @@ MonoBehaviour:
     useTextCounter: 0
     useItemIcons: 1
     itemUIContainer: {fileID: 58800657}
+    isCollectionStep: 1
   - questText: Run
     targetAmount: 0
     itemPrefix: 
     useTextCounter: 1
     useItemIcons: 0
     itemUIContainer: {fileID: 0}
+    isCollectionStep: 1
   questTMP: {fileID: 1668032555}
   counterTMP: {fileID: 0}
   winTrigger: {fileID: 1068223729}
@@ -2593,6 +2595,10 @@ PrefabInstance:
     - target: {fileID: 343501036160507517, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367423385109410586, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3772641397715373090, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
       propertyPath: m_LocalPosition.x
