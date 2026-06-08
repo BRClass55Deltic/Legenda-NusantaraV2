@@ -10,4 +10,9 @@ public class CutsceneSelesai : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+    public void ExitGame()
+    {
+        Debug.Log("Game Keluar!");
+        Application.Quit();
+    }
 }

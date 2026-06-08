@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8957ef43722f6b940b8cd43cd66d6fe2, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1474,6 +1474,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &670798127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 170.61946
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.413471
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 203.93257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.76482105
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6442428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -80.218
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503481187027727892, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281134558903853505, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+      propertyPath: m_Name
+      value: buto ijo
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8088283814240496034, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+    - {fileID: 5329425129947092424, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
 --- !u!1 &717044283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,6 +2287,7 @@ GameObject:
   - component: {fileID: 1330995375}
   - component: {fileID: 1330995374}
   - component: {fileID: 1330995376}
+  - component: {fileID: 1330995377}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2337,19 +2397,43 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567576036}
+      - m_Target: {fileID: 11500000, guid: 0ff7f04fb58150b41b72bff0f7f3e9c7, type: 3}
         m_TargetAssemblyTypeName: UITransisiManager, Assembly-CSharp
-        m_MethodName: UpdateCamera
-        m_Mode: 2
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1521299710}
-          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
-            Cinemachine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1330995377}
+        m_TargetAssemblyTypeName: CutsceneSelesai, Assembly-CSharp
+        m_MethodName: Cutscene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1330995377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330995372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff7f04fb58150b41b72bff0f7f3e9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 4
 --- !u!1 &1351528815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,6 +3137,7 @@ GameObject:
   - component: {fileID: 2086204717}
   - component: {fileID: 2086204716}
   - component: {fileID: 2086204718}
+  - component: {fileID: 2086204719}
   m_Layer: 5
   m_Name: Exit Panel
   m_TagString: Untagged
@@ -3175,6 +3260,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2086204719}
+        m_TargetAssemblyTypeName: CutsceneSelesai, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2086204719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086204714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff7f04fb58150b41b72bff0f7f3e9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
 --- !u!1 &2123346312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,3 +3404,4 @@ SceneRoots:
   - {fileID: 877241745}
   - {fileID: 567576035}
   - {fileID: 1481168493}
+  - {fileID: 670798127}
