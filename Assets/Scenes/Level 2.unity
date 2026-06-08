@@ -9509,6 +9509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextLevelTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 4664632958620183961, guid: 876554c4524896e45a8687c6b8033597, type: 3}
+      propertyPath: sceneName
+      value: Cutscene 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9085745155638230058, guid: 876554c4524896e45a8687c6b8033597, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.35

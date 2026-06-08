@@ -4332,7 +4332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664632958620183961, guid: 876554c4524896e45a8687c6b8033597, type: 3}
       propertyPath: sceneName
-      value: Level 2
+      value: Cutscene level 2
       objectReference: {fileID: 0}
     - target: {fileID: 7084168360434720347, guid: 876554c4524896e45a8687c6b8033597, type: 3}
       propertyPath: m_Enabled
