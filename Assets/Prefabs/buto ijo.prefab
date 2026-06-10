@@ -848,7 +848,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -870,6 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   playerTag: Player
+  gameOverScreen: {fileID: 0}
 --- !u!195 &5329425129947092424
 NavMeshAgent:
   m_ObjectHideFlags: 0

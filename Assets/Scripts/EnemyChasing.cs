@@ -10,6 +10,10 @@ public class EnemyChasing : MonoBehaviour
     private NavMeshAgent agent;
     private Transform player;
 
+    public GameObject gameOverScreen;
+
+    private bool isGameOver = false;
+
     private Animator anim;
     
     // Start is called before the first frame update
@@ -19,6 +23,11 @@ public class EnemyChasing : MonoBehaviour
         agent.speed = moveSpeed;
 
         anim = GetComponent<Animator>();
+
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(false);
+        }
 
         GameObject p = GameObject.FindGameObjectWithTag(playerTag);
         if (p != null)
@@ -57,9 +66,21 @@ public class EnemyChasing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerTag))
+        // 3. Ketika musuh menyentuh player dan game belum over
+        if (other.CompareTag(playerTag) && !isGameOver)
         {
             Debug.Log("Player is Kill");
+            
+            isGameOver = true; // Tandai game sudah berakhir
+
+            // Munculkan layar Game Over
+            if (gameOverScreen != null)
+            {
+                gameOverScreen.SetActive(true); 
+            }
+
+            // (Opsional) Menghentikan waktu game jika kamu ingin game nge-freeze saat Game Over
+            // Time.timeScale = 0f; 
         }
     }
 }
