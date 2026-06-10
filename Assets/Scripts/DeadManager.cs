@@ -32,6 +32,11 @@ public class DeadManager : MonoBehaviour
             Time.timeScale = 0f;        // Pause game
             Debug.Log("Player masuk Dead Zone. Game Paused.");
         }
+        if (AudioManager.instance != null)
+        {
+            // BGM langsung mati, SFX dead langsung masuk!
+            AudioManager.instance.TriggerGameOverAudio(); 
+        }
     }
 
     // --- LOGIK TOMBOL (UI) ---

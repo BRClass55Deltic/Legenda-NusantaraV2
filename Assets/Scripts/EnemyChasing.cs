@@ -73,6 +73,12 @@ public class EnemyChasing : MonoBehaviour
             
             isGameOver = true; // Tandai game sudah berakhir
 
+           if (AudioManager.instance != null)
+            {
+                // BGM langsung mati, SFX dead langsung masuk!
+                AudioManager.instance.TriggerGameOverAudio(); 
+            }
+
             // Munculkan layar Game Over
             if (gameOverScreen != null)
             {
