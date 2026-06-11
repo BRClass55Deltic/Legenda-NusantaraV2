@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // <-- 1. TAMBAHKAN INI UNTUK SCENE MANAGEMENT
 
 public class AudioManager : MonoBehaviour
 {
+    // Kita tetap pakai Instance agar skrip Enemy/DeathManager bisa memanggil dengan mudah
     public static AudioManager instance;
 
     [Header("Audio Sources")]
@@ -17,40 +17,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            
-            // 2. Daftarkan fungsi ke sistem Unity agar tahu kapan scene berubah
-            SceneManager.sceneLoaded += OnSceneLoaded; 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        // 3. Bersihkan pendaftaran saat objek dihancurkan (opsional, tapi praktik yang baik)
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        // Langsung tetapkan instance ke objek yang ada di scene saat ini
+        instance = this;
     }
 
     private void Start()
     {
-        // Tetap mainkan BGM saat pertama kali game dibuka
+        // Setiap kali scene di-load atau di-restart, fungsi ini PASTI jalan 
+        // dan otomatis memutar BGM khusus scene ini dari awal
         PlayBGM();
-    }
-
-    // 4. FUNGSI BARU: Otomatis dipanggil setiap kali scene di-restart atau pindah level
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Cek apakah BGM sedang mati, jika ya, mainkan lagi dari awal
-        if (bgmSource != null && !bgmSource.isPlaying)
-        {
-            PlayBGM();
-        }
     }
 
     public void PlayBGM()

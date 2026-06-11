@@ -348,14 +348,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questSteps:
-  - questText: Kumpulkan 3 Item
+  - questText: Kumpulkan 3 Kantung
     targetAmount: 3
     itemPrefix: 
     useTextCounter: 0
     useItemIcons: 1
     itemUIContainer: {fileID: 58800657}
     isCollectionStep: 1
-  - questText: Run
+  - questText: Temukan Tempat untuk Menyerang
     targetAmount: 0
     itemPrefix: 
     useTextCounter: 1
@@ -13647,7 +13647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8281134558903853505, guid: 5ddf544783cca7944b71fc419c367195, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
