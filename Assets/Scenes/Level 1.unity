@@ -1060,11 +1060,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3553437539025387180, guid: 1125ad8af94bb5a409de987c7691f877, type: 3}
   m_PrefabInstance: {fileID: 284926252}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &311754765 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6333417804348673291, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &324857138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8457240930176328030, guid: a81cc63c716bb4f41833e49172003e81, type: 3}
@@ -2924,7 +2919,7 @@ MonoBehaviour:
   fishingMekanik: {fileID: 959839510}
   player: {fileID: 1768073412}
   anim: {fileID: 1701555715}
-  mancingUI: {fileID: 1172981423}
+  mancingUI: {fileID: 0}
   Pancing: {fileID: 959839510}
   fishingInterktif: {fileID: 1434725389}
 --- !u!114 &959839510
@@ -2939,21 +2934,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13611aa21c68ea4c979daee057a9bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toppivot: {fileID: 1018905304}
-  botompivot: {fileID: 1018905303}
-  fish: {fileID: 1018905302}
+  toppivot: {fileID: 0}
+  botompivot: {fileID: 0}
+  fish: {fileID: 0}
   questManager: {fileID: 2009256037}
   kait: {fileID: 848472705}
   timeMultiplication: 3
   smoothMotion: 1
-  hook: {fileID: 1018905301}
+  hook: {fileID: 0}
   Hooksize: 0.2
   Hookpower: 0.5
   hookpullpower: 0.01
   hookpullGravityPower: 0.003
   hookprogressDegradtionpower: 0.1
-  HookImage: {fileID: 1018905305}
-  ProgressBar: {fileID: 311754765}
+  HookImage: {fileID: 0}
+  ProgressBar: {fileID: 0}
   Kaitanim: {fileID: 848472709}
   anim: {fileID: 1701555715}
   failTime: 20
@@ -3242,37 +3237,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007791294}
   m_Mesh: {fileID: 3562073674547505438, guid: d0703bf708f1b2342a95b69fb1456ebb, type: 3}
---- !u!224 &1018905301 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5056015940426227209, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1018905302 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7934065804698899370, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1018905303 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1648737546706958086, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1018905304 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4107040790559361456, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1018905305 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3303109117417978347, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1062611110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772641397715373090, guid: 5c5966280a92e594685eb1b24777c4db, type: 3}
@@ -3799,11 +3763,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2135398784067463160, guid: ce26868e4cdcf3243b94feadfa4a03f5, type: 3}
   m_PrefabInstance: {fileID: 1106467828}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1172981423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8893316539356079284, guid: e22afdf9cf5013b4da535b29af75e05a, type: 3}
-  m_PrefabInstance: {fileID: 1063772215}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1173873654 stripped
 Transform:

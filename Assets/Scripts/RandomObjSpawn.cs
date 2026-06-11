@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RandomObjSpawn : MonoBehaviour
 {
-    //public Transform RedGem;
+    public Transform RedGem;
     public Transform GreenGem;
     public Transform BlueGem;
 
-    //public Transform[] redSpawns;
+    public Transform[] redSpawns;
     public Transform[] greenSpawns;
     public Transform[] blueSpawns;
     
@@ -16,8 +16,8 @@ public class RandomObjSpawn : MonoBehaviour
     void Start()
     {
         // Red
-        /*int redIndex = Random.Range(0, redSpawns.Length);
-        RedGem.position = redSpawns[redIndex].position; */
+        int redIndex = Random.Range(0, redSpawns.Length);
+        RedGem.position = redSpawns[redIndex].position;
 
 
         // Green
